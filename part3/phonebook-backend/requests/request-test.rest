@@ -1,0 +1,10 @@
+DELETE http://localhost:3001/api/persons/someInvalidId
+# POST http://localhost:3001/api/persons
+# Content-Type: application/json
+
+# {
+#   "name": "hahaha",
+#   "number": "4311237234"
+# }
+
+# GET http://localhost:3001/api/persons

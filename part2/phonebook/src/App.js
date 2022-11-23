@@ -3,7 +3,7 @@ import phonebookService from './services/phonebook'
 
 
 const Person = ({ person, onClick }) => <li>{person.name} {person.number} <Button text="delete" onClick={onClick} /></li>
-const Persons = ({ persons, onClick }) => persons.map(person => <Person key={person.name} person={person} onClick={() => {onClick(person.id)}} />)
+const Persons = ({ persons, onClick }) => persons.map(person => <Person key={person.id} person={person} onClick={() => {onClick(person.id)}} />)
 const PersonForm = (props) => {
   return (
     <form onSubmit={props.onSubmit}>
@@ -40,6 +40,9 @@ const App = () => {
         setFiltered(newPersons); // why not setFiltered(persons)?
         setNewName('');
         setNewNumber('');
+      })
+      .catch(error => {
+        console.log(error.response.data.error)
       })
   }
 
