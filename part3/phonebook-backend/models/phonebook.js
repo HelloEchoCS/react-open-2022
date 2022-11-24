@@ -1,14 +1,14 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-underscore-dangle */
-require('dotenv').config();
 const mongoose = require('mongoose');
+const config = require('../utils/config');
+const logger = require('../utils/logger');
 
-const url = process.env.MONGODB_URI;
-console.log(`connecting to ${url}`);
+logger.info(`connecting to ${config.MONGODB_URI}`);
 
-mongoose.connect(url)
-  .then(() => console.log('connected to MongoDB'))
-  .catch((err) => console.log('error connecting to MongoDB: ', err.message));
+mongoose.connect(config.MONGODB_URI)
+  .then(() => logger.info('connected to MongoDB'))
+  .catch((err) => logger.info('error connecting to MongoDB: ', err.message));
 
 const personSchema = new mongoose.Schema({
   name: {
