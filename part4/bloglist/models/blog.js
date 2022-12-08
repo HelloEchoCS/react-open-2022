@@ -5,7 +5,10 @@ const logger = require('../utils/logger');
 logger.info('Connecting to MongoDB...');
 
 const blogSchema = new mongoose.Schema({
-  title: String,
+  title: {
+    type: String,
+    required: true,
+  },
   author: String,
   url: String,
   likes: Number
